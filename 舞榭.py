@@ -22,7 +22,7 @@ from PyQt5.QtGui import QFont
 布局.addWidget(显示舞者)
 平台.setLayout(布局)
 
-# 幕后
+# 演出
 幕后.setFont(QFont('楷体', 32))
 平台.show()
 幕后.exec()
