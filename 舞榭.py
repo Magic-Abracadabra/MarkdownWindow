@@ -1,3 +1,5 @@
+import sys
+
 from markdown import markdown
 from PyQt5.QtWidgets import QApplication, QWidget, QTextEdit, QTextBrowser, QHBoxLayout
 from PyQt5.QtGui import QFont
@@ -12,6 +14,15 @@ from PyQt5.QtGui import QFont
 # 舞者
 输入舞者 = QTextEdit()
 显示舞者 = QTextBrowser()
+
+# 剧本
+if len(sys.argv)==2:
+	with open(sys.argv[1], encoding='utf-8') as 剧本:
+		剧本 = 剧本.read()
+		print(剧本)
+		输入舞者.setText(剧本)
+		显示舞者.setHtml(markdown(剧本))
+
 
 # 舞者之间
 输入舞者.textChanged.connect(lambda: 显示舞者.setHtml(markdown(输入舞者.toPlainText())))
